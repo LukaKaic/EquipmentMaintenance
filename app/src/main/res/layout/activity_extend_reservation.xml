@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lukakaic.equipmentmaintenance.activity.ExtendReservationActivity">
+
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
+        android:text="Extend your reservation"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/extendReturnDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView9"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:hint="New return date"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/extendReason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/extendReturnDate"
+        android:layout_below="@+id/extendReturnDate"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:hint="Reason for extension"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/extendReservationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Extend reservation"
+        android:textSize="16sp"
+        android:theme="@style/PrimaryFlatButton" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/extendReservationButton"
+        android:layout_marginTop="17dp"
+        android:background="#c0c0c0"
+        android:id="@+id/view" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:text="Cancel your reservation"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/extendCancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView9"
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="37dp"
+        android:text="Cancel reservation"
+        android:textSize="16sp"
+        android:theme="@style/PrimaryFlatButton" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="27dp"
+        android:layout_marginEnd="17dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_home_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+
+</RelativeLayout>

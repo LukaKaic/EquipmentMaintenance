@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lukakaic.equipmentmaintenance.activity.RegisterActivity">
+
+    <EditText
+        android:id="@+id/emailRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="135dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="email"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="70dp" />
+
+    <EditText
+        android:id="@+id/passwordRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/emailRegister"
+        android:layout_below="@+id/emailRegister"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="password" />
+
+    <EditText
+        android:id="@+id/firstNameRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/passwordRegister"
+        android:layout_below="@+id/passwordRegister"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="first name"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <EditText
+        android:id="@+id/lastNameRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/passwordRegister"
+        android:layout_below="@+id/firstNameRegister"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="last name"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="260dp" />
+
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lastNameRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"
+        android:text="Register"
+        android:theme="@style/PrimaryFlatButton"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="401dp" />
+</RelativeLayout>

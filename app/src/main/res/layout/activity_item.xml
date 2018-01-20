@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lukakaic.equipmentmaintenance.activity.ItemActivity">
+
+    <TextView
+        android:id="@+id/itemIdentifierText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="29dp"
+        android:text=""
+        android:textColor="#55acee"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/itemDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/itemIdentifierText"
+        android:layout_marginTop="46dp"
+        android:layout_toStartOf="@+id/historyReservationsButton"
+        android:text="Description"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/itemDescriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/itemDescription"
+        android:layout_alignBottom="@+id/itemDescription"
+        android:layout_alignStart="@+id/reservationText"
+        android:text="TextView"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/deviceTypeItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/itemDescription"
+        android:layout_below="@+id/itemDescription"
+        android:layout_marginTop="40dp"
+        android:text="Device type"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/deviceTypeItemText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/deviceTypeItem"
+        android:layout_alignBottom="@+id/deviceTypeItem"
+        android:layout_alignStart="@+id/itemDescriptionText"
+        android:text="TextView"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/reseravtion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/kitType"
+        android:layout_below="@+id/kitType"
+        android:layout_marginTop="30dp"
+        android:text="Reservation"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/reservationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/reseravtion"
+        android:layout_alignBottom="@+id/reseravtion"
+        android:layout_centerHorizontal="true"
+        android:text="TextView"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/kitType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/deviceTypeItem"
+        android:layout_below="@+id/deviceTypeItem"
+        android:layout_marginTop="39dp"
+        android:text="Kit type"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/kitTypeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/kitType"
+        android:layout_alignBottom="@+id/kitType"
+        android:layout_alignStart="@+id/reservationText"
+        android:text="TextView"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/reservetionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reservationText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:text="Reserve item"
+        android:theme="@style/PrimaryFlatButton"
+        android:clickable="true"/>
+
+    <Button
+        android:id="@+id/historyReservationsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reservetionButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:text="Reservations History"
+        android:theme="@style/PrimaryFlatButton" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="27dp"
+        android:layout_marginEnd="17dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_home_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+</RelativeLayout>
