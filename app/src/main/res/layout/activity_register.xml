@@ -62,6 +62,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="88dp"
         android:text="Register"
+        android:textSize="18sp"
         android:theme="@style/PrimaryFlatButton"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="401dp" />

@@ -15,7 +15,9 @@
         android:layout_marginTop="108dp"
         android:text="TextView"
         android:textColor="@android:color/black"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:elevation="@dimen/activity_horizontal_margin"
+        />
 
     <View
         android:id="@+id/lineText"
@@ -39,11 +41,11 @@
         android:id="@+id/myReservationsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/floatingActionButton"
+        android:layout_above="@+id/logoutButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="40dp"
         android:text="My reservations"
-        android:textSize="17dp"
+        android:textSize="18sp"
         android:theme="@style/PrimaryFlatButton" />
 
     <Button
@@ -52,8 +54,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/floatingActionButton"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="21dp"
         android:text="Logout"
-        android:textSize="17dp"
+        android:textSize="18sp"
         android:theme="@style/PrimaryFlatButton" />
 
     <android.support.design.widget.FloatingActionButton

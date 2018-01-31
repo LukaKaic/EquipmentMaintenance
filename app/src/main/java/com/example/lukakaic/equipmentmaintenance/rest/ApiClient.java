@@ -8,8 +8,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ApiClient {
-
-    public static final String BASE_URL = "http://159.89.108.135/api/";
+    // stari URL koji se koristio pri izradi projekta
+    //public static final String BASE_URL = "http://159.89.108.135/api/";
+    // novi URL nakon sto je server deployan
+    public static final String BASE_URL = "http://161.53.19.119:8080";
     private static Retrofit retrofit = null;
 
 

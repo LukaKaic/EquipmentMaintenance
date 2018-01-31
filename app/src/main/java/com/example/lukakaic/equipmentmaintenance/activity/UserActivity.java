@@ -86,6 +86,7 @@ public class UserActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(UserActivity.this, MainActivity.class);
                 UserActivity.this.startActivity(myIntent);
+                finish();
             }
         });
 

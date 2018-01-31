@@ -84,9 +84,9 @@ public class ItemActivity extends AppCompatActivity {
                 try {
                     reservation = response.body().string();
                     if(reservation.equals("true")){
-                        reservationText.setText("Slobodan");
+                        reservationText.setText("Free");
                     } else{
-                        reservationText.setText("Zauzet");
+                        reservationText.setText("Reserved");
                         reservationText.setTextColor(Color.RED);
                         reservationItemButton.setClickable(false);
                     }
@@ -125,34 +125,15 @@ public class ItemActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
-        /*
-        reservationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callTwo.enqueue(new Callback<String>() {
-                    @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
-                        Integer code = response.code();
-                        Log.d("reservation", code.toString());
-                    }
-
-                    @Override
-                    public void onFailure(Call<String> call, Throwable t) {
-                        t.printStackTrace();
-                    }
-                });
-            }
-        });*/
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent myIntent = new Intent(ItemActivity.this, MainActivity.class);
                 ItemActivity.this.startActivity(myIntent);
+                finish();
             }
         });
     }
-
-
 
 }

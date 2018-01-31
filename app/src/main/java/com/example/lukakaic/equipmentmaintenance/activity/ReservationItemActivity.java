@@ -46,6 +46,8 @@ public class ReservationItemActivity extends AppCompatActivity {
         final ArrayList<Integer> item_id1 = new ArrayList<>();
         item_id1.add(0, itemId);
 
+        Log.d("item_id", item_id1.toString());
+
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
 
@@ -56,12 +58,13 @@ public class ReservationItemActivity extends AppCompatActivity {
                 String reservationStartText = reservationStart.getText().toString();
                 String reservationEndText = reservationEnd.getText().toString().trim();
                 String reservationRemarkText = reservationRemark.getText().toString().trim();
+                Log.d("reservation", reservationStartText);
+                Log.d("reservation", reservationEndText);
+                Log.d("reservation", reservationRemarkText);
                 final Call<ResponseBody> call = apiService.reservation("Bearer " + token, reservationStartText, reservationEndText,  item_id1.toString(), reservationRemarkText);
                 call.enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        Integer code = response.code();
-                        Log.d("code ", code.toString());
                         Context context = getApplicationContext();
                         CharSequence text = "Reservation in progress";
                         int duration = Toast.LENGTH_LONG;
@@ -84,6 +87,7 @@ public class ReservationItemActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(ReservationItemActivity.this, MainActivity.class);
                 ReservationItemActivity.this.startActivity(myIntent);
+                finish();
             }
         });
     }

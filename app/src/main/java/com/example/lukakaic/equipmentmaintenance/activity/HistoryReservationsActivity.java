@@ -72,7 +72,7 @@ public class HistoryReservationsActivity extends AppCompatActivity {
                     }
                     for(int i=0; i < itemsSorted.size(); i++) {
                         StringBuilder stringBuilder = new StringBuilder();
-                        stringBuilder.append(itemsSorted.get(i).getStartDate() + " " + itemsSorted.get(i).getUser().getFirstName() +  " " + itemsSorted.get(i).getUser().getLastName());
+                        stringBuilder.append(itemsSorted.get(i).getStartDate() + "           " + itemsSorted.get(i).getUser().getFirstName() +  " " + itemsSorted.get(i).getUser().getLastName() + "        " + itemsSorted.get(i).getReturnDate());
                         reservationsList.add(stringBuilder.toString());
                     }
                     Integer size1 = itemsSorted.size();
@@ -93,6 +93,7 @@ public class HistoryReservationsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(HistoryReservationsActivity.this, MainActivity.class);
                 HistoryReservationsActivity.this.startActivity(myIntent);
+                finish();
             }
         });
 

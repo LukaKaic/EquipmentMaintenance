@@ -42,6 +42,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="99dp"
         android:text="Register"
+        android:textSize="18sp"
         android:theme="@style/PrimaryFlatButton"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="483dp" />
@@ -50,10 +51,11 @@
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/registerButton"
         android:layout_below="@+id/passwordLogin"
-        android:layout_marginTop="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
         android:text="Login"
+        android:textSize="18sp"
         android:theme="@style/PrimaryFlatButton" />
 
 </RelativeLayout>

@@ -1,18 +1,15 @@
 package com.example.lukakaic.equipmentmaintenance.rest;
 
 import com.example.lukakaic.equipmentmaintenance.model.Item;
-import com.example.lukakaic.equipmentmaintenance.model.ReservationPostResponse;
 import com.example.lukakaic.equipmentmaintenance.model.ReservationResponse;
 import com.example.lukakaic.equipmentmaintenance.model.User;
 import com.example.lukakaic.equipmentmaintenance.model.UserReservationsResponse;
 import com.example.lukakaic.equipmentmaintenance.model.UserResponse;
-import com.example.lukakaic.equipmentmaintenance.model.Users;
 
 import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -40,9 +37,6 @@ public interface ApiInterface {
                                    @Field("return_date") String return_date,
                                    @Field("item_id") String item_id,
                                    @Field("remark") String remark);
-    @POST("reservations/request")
-    Call<Integer> reservation1(@Header("Authorization") String token,
-                               @Body ReservationPostResponse friendModel);
 
     @GET("reservations")
     Call<List<Item>> getReservations(@Header("Authorization") String token);
@@ -67,24 +61,15 @@ public interface ApiInterface {
     Call<UserResponse> loginUser(@Field("email") String email,
                                  @Field("password") String password);
 
-
-    @GET("users/")
-    Call<Users> getUsers(@Header("Authorization") String token);
-
     @GET("users/current")
     Call<User> getUser(@Header("Authorization") String token);
 
-
-    @POST("auth/register")
-    @FormUrlEncoded
-    Call<User> registration(@Field("email") String email,
-                            @Field("password") String password);
 
     @POST("reservations/extend")
     @FormUrlEncoded
     Call<ResponseBody> extendReservation(@Header("Authorization") String token,
                                          @Field("new_return_date") String return_date,
-                                         @Field("item_id") String item_id,
+                                         @Field("reservation_id") String item_id,
                                          @Field("reason") String reason);
 
     @POST("reservations/delete/{id}")

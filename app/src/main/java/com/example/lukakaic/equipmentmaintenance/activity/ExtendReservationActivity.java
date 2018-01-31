@@ -122,6 +122,7 @@ public class ExtendReservationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(ExtendReservationActivity.this, MainActivity.class);
                 ExtendReservationActivity.this.startActivity(myIntent);
+                finish();
             }
         });
     }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +34,7 @@ public class EquipmentActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.listView);
 
-        //Uzimanje tokena
+        //Dohvacanje tokena
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String token = preferences.getString("key", "defaultValue");
         Log.d("token", token);
@@ -45,6 +46,7 @@ public class EquipmentActivity extends AppCompatActivity {
         Call<List<Item>> call = apiService.getItems("Bearer " + token);
         final ListView finalListView1 = listView;
         final ListView finalListView2 = listView;
+
         call.enqueue(new Callback<List<Item>>() {
             @Override
             public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
@@ -100,6 +102,15 @@ public class EquipmentActivity extends AppCompatActivity {
 
             }
 
+        });
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton2);
+        fab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent myIntent = new Intent(EquipmentActivity.this, MainActivity.class);
+                EquipmentActivity.this.startActivity(myIntent);
+                finish();
+            }
         });
 
     }

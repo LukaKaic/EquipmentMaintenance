@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.lukakaic.equipmentmaintenance.R;
 import com.example.lukakaic.equipmentmaintenance.model.Item;
@@ -37,8 +36,11 @@ public class ReservationActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.userReservationsList);
         final String reservationId;
         final HashMap<Integer, Integer> reservationMap = new HashMap<Integer, Integer>();
+        final HashMap<Integer, Integer> statusMap = new HashMap<Integer, Integer>();
 
-        //Uzimanje tokena
+        final Integer[] flag = {0};
+
+        //Dohvacanje tokena
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String token = preferences.getString("key", "defaultValue");
         Integer userId = preferences.getInt("key1", 1);
@@ -51,21 +53,6 @@ public class ReservationActivity extends AppCompatActivity {
         Call<List<UserReservationsResponse>> callTwo = apiService.getReservationsOfUser("Bearer " + token, userId);
         Log.d("userId", userId.toString());
         final ListView finalListView1 = listView;
-        /*
-        call.enqueue(new Callback<List<Item>>() {
-            @Override
-            public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
-                Integer code = response.code();
-                Log.d("code", code.toString());
-                List<Item> items = response.body();
-            }
-
-            @Override
-            public void onFailure(Call<List<Item>> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-        */
 
         callTwo.enqueue(new Callback<List<UserReservationsResponse>>() {
             @Override
@@ -85,12 +72,19 @@ public class ReservationActivity extends AppCompatActivity {
                         if(status.equals("Zahtijev poslan")){
                             sb.append(items.get(i).getStartDate() + "      " + items.get(i).getReturnDate() + "        " + items.get(i).getItems().get(j).getItem().getIdentifier() + "        " + "Pending");
                             sbArray.add(0, sb.toString());
+                            statusMap.put(counter, 1);
                         } else if(status.equals("Odobrena")) {
                             sb.append(items.get(i).getStartDate() + "      " + items.get(i).getReturnDate() + "        " + items.get(i).getItems().get(j).getItem().getIdentifier() + "        " + "Granted" );
                             sbArray.add(0, sb.toString());
+                            statusMap.put(counter, 1);
+                        } else if(status.equals("Otkazana")){
+                            sb.append(items.get(i).getStartDate() + "      " + items.get(i).getReturnDate() + "        " + items.get(i).getItems().get(j).getItem().getIdentifier() + "        " + "Canceled");
+                            sbArray.add(0, sb.toString());
+                            statusMap.put(counter, 0);
                         } else {
                             sb.append(items.get(i).getStartDate() + "      " + items.get(i).getReturnDate() + "        " + items.get(i).getItems().get(j).getItem().getIdentifier() + "        " + "Rejected");
                             sbArray.add(0, sb.toString());
+                            statusMap.put(counter, 0);
                         }
                         reservationMap.put(counter, items.get(i).getItems().get(j).getReservationId());
                         counter++;
@@ -118,36 +112,43 @@ public class ReservationActivity extends AppCompatActivity {
             }
         });
 
+
+
         final ListView finalListView = listView;
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
 
-                // ListView Clicked item index
-                Integer itemPosition = position + 1;
+                    // ListView Clicked item index
+                    Integer itemPosition = position + 1;
+                    Integer itemPositionReverse = statusMap.size() - position;
 
-                // ListView Clicked item value
-                String  itemValue = (String) finalListView.getItemAtPosition(position);
+                    // ListView Clicked item value
+                    String  itemValue = (String) finalListView.getItemAtPosition(position);
 
-                // Show Alert
-                Toast.makeText(getApplicationContext(),
-                        "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-                        .show();
-                Intent intent = new Intent(ReservationActivity.this, ExtendReservationActivity.class);
-                intent.putExtra("EXTRA_SESSION_ID",  itemValue);
-                intent.putExtra("RESERVATION_ID", reservationMap.get(itemPosition));
-                ReservationActivity.this.startActivity(intent);
-            }
 
-        });
+                    Log.d("List", statusMap.get(itemPosition).toString());
+                    Log.d("Position", itemPosition.toString());
+                    if(statusMap.get(itemPositionReverse) == 1) {
+                        Intent intent = new Intent(ReservationActivity.this, ExtendReservationActivity.class);
+                        intent.putExtra("EXTRA_SESSION_ID", itemValue);
+                        intent.putExtra("RESERVATION_ID", reservationMap.get(itemPosition));
+                        ReservationActivity.this.startActivity(intent);
+                    }
+
+                }
+
+            });
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent myIntent = new Intent(ReservationActivity.this, MainActivity.class);
                 ReservationActivity.this.startActivity(myIntent);
+                finish();
             }
         });
     }

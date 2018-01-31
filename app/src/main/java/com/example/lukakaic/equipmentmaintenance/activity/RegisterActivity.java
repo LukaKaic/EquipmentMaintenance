@@ -62,8 +62,6 @@ public class RegisterActivity extends AppCompatActivity {
                         int duration = Toast.LENGTH_LONG;
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
-                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                        RegisterActivity.this.startActivity(intent);
 
                     }
 
@@ -71,98 +69,16 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onFailure(Call<String> call, Throwable t) {
                         call.cancel();
                         Context context = getApplicationContext();
-                        CharSequence text = "Code : ";
+                        CharSequence text = "User registred";
                         int duration = Toast.LENGTH_LONG;
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        RegisterActivity.this.startActivity(intent);
                     }
                 });
             }
         });
 
-
-
-
-
-
-
-
-        /*
-        call.enqueue(new Callback<List<UserResponse>>() {
-            @Override
-            public void onResponse(Call<List<UserResponse>> call, Response<List<UserResponse>> response) {
-                if(response.isSuccessful()){
-                    Integer isTrue = response.code();
-                    Context context = getApplicationContext();
-                    CharSequence text = "Registred!" + isTrue;
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<UserResponse>> call, Throwable t) {
-
-            }
-        });
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String emailText = email.getText().toString().trim();
-                String firstNameText = first_name.getText().toString().trim();
-                String lastNameText = last_name.getText().toString().trim();
-                String passwordText = password.getText().toString().trim();
-                Context context = getApplicationContext();
-                CharSequence text = "Registred!" + emailText + " " + firstNameText + " " + lastNameText + " " + passwordText;
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-                Call<User> call = apiService.saveUser(emailText, firstNameText, lastNameText, passwordText);
-                call.enqueue(new Callback<User>() {
-                    @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
-                        Integer isTrue = response.code();
-                        Context context = getApplicationContext();
-                        CharSequence text = "Registred!" + isTrue;
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.show();
-                    }
-
-                    @Override
-                    public void onFailure(Call<User> call, Throwable t) {
-
-                    }
-                });
-            }
-        });
-    }
-    public void sendPost(String email, String firstName, String lastName, String passwordText) {
-        apiService.savePost(email, firstName, lastName, passwordText).enqueue(new Callback<Post>() {
-            @Override
-            public void onResponse(Call<Post> call, Response<Post> response) {
-
-                if(response.isSuccessful()) {
-                    showResponse(response.body().toString());
-                    Log.i(TAG, "post submitted to API." + response.body().toString());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Post> call, Throwable t) {
-                Log.e(TAG, "Unable to submit post to API.");
-            }
-        });
-    }
-
-    public void showResponse(String response) {
-        if(mResponseTv.getVisibility() == View.GONE) {
-            mResponseTv.setVisibility(View.VISIBLE);
-        }
-        mResponseTv.setText(response);
-    }
-    */
     }
 }

@@ -47,7 +47,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Extend reservation"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:theme="@style/PrimaryFlatButton" />
 
     <View
@@ -78,7 +78,7 @@
         android:layout_below="@+id/textView7"
         android:layout_marginTop="37dp"
         android:text="Cancel reservation"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:theme="@style/PrimaryFlatButton" />
 
     <android.support.design.widget.FloatingActionButton
