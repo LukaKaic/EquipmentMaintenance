@@ -40,7 +40,6 @@
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.UserActivity" />
         <activity android:name=".activity.ItemActivity" />
-        <activity android:name=".activity.FragmentActivity" />
         <activity android:name=".activity.HistoryReservationsActivity" />
         <activity android:name=".activity.ReservationItemActivity" />
         <activity android:name=".activity.UserReservationsActivity" />
